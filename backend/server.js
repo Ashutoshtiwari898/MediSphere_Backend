@@ -14,6 +14,9 @@ const port = process.env.PORT || 4000;
 app.use(express.json())
 app.use(cors())
 
+app.get('/api/health', (req, res) => {
+    res.status(200).json({ success: true, message: 'API is running' })
+})
 
 app.use("/api/admin",adminRouter);
 app.use("/api/doctor",doctorRouter);
